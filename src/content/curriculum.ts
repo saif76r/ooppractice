@@ -4,11 +4,14 @@ import {
   METHOD_OVERLOADING_LEVEL,
   METHOD_OVERRIDING_LEVEL,
 } from './masteryLevels';
+<<<<<<< HEAD
 import {
   AGGREGATION_MASTERY_LEVEL,
   COMPOSITION_MASTERY_LEVEL,
 } from './relationshipMasteryLevels';
 import { ETERNAL_KINGDOM_CAPSTONES } from './eternalKingdomCapstones';
+=======
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
 
 export const CURRICULUM: Level[] = [
   // =========================================================================
@@ -1013,6 +1016,7 @@ public class Main {
   },
 
   // =========================================================================
+<<<<<<< HEAD
   // LEVEL 11: AGGREGATION MASTERY (10 CHALLENGES: SIMPLE -> HARD)
   // =========================================================================
   AGGREGATION_MASTERY_LEVEL,
@@ -1027,6 +1031,12 @@ public class Main {
   // =========================================================================
   {
     id: 13,
+=======
+  // LEVEL 11: EXCEPTION DUNGEON
+  // =========================================================================
+  {
+    id: 11,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     slug: 'exception-dungeon',
     title: 'Exception Dungeon',
     subtitle: 'Defensive Fortresses & Fault Tolerance',
@@ -1042,8 +1052,13 @@ public class Main {
     ],
     story: 'Descend into the dark chambers of the dungeon where magical failures and corrupted energies threaten to collapse reality unless safely handled.',
     totalXP: 900,
+<<<<<<< HEAD
     requiredLevelToUnlock: 13,
     prerequisiteLevelId: 12,
+=======
+    requiredLevelToUnlock: 11,
+    prerequisiteLevelId: 10,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     bossChallenge: {
       title: 'Defeat the Dungeon Dread',
       description: 'Implement a StaminaSystem with int stamina (initial 25). Create a custom InsufficientStaminaException extending Exception. Provide performAction(int cost) throwing InsufficientStaminaException if cost > stamina. In main(), perform action costing 15 (succeeds, remaining 10), then attempt action costing 20 (catches exception and prints message), then print "Final Stamina: 10".',
@@ -1080,8 +1095,13 @@ public class Main {
     },
     missions: [
       {
+<<<<<<< HEAD
         id: 'm13_exc_1',
         levelId: 13,
+=======
+        id: 'm11_1',
+        levelId: 11,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         number: 1,
         title: 'The Uncaught Catastrophe: try-catch',
         mode: 'coding_arena',
@@ -1118,10 +1138,17 @@ public class Main {
   },
 
   // =========================================================================
+<<<<<<< HEAD
   // LEVEL 14: COLLECTIONS KINGDOM
   // =========================================================================
   {
     id: 14,
+=======
+  // LEVEL 12: COLLECTIONS KINGDOM
+  // =========================================================================
+  {
+    id: 12,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     slug: 'collections-kingdom',
     title: 'Collections Kingdom',
     subtitle: 'Data Structures, Generics & The Java Collections Framework',
@@ -1137,8 +1164,13 @@ public class Main {
     ],
     story: 'Enter the vast archives of the kingdom where millions of items, artifacts, and spells are cataloged using specialized Java collection structures.',
     totalXP: 950,
+<<<<<<< HEAD
     requiredLevelToUnlock: 14,
     prerequisiteLevelId: 13,
+=======
+    requiredLevelToUnlock: 12,
+    prerequisiteLevelId: 11,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     bossChallenge: {
       title: 'Organize the Royal Archives',
       description: 'Implement an InventoryManager that uses a Map<String, Integer> to track item stock. Provide addItem(String item, int qty) to accumulate quantity, and printInventory() to print each item and its count in alphabetical order. In main(), add ("Potion", 5), ("Elixir", 2), and ("Potion", 3). Print total Potions and Elixirs.',
@@ -1175,8 +1207,13 @@ public class Main {
     },
     missions: [
       {
+<<<<<<< HEAD
         id: 'm14_col_1',
         levelId: 14,
+=======
+        id: 'm12_1',
+        levelId: 12,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         number: 1,
         title: 'Choosing the Right Container: List vs Set',
         mode: 'coding_arena',
@@ -1214,10 +1251,17 @@ public class Main {
   },
 
   // =========================================================================
+<<<<<<< HEAD
   // LEVEL 15: STATIC & INNER REALM
   // =========================================================================
   {
     id: 15,
+=======
+  // LEVEL 13: STATIC & INNER REALM
+  // =========================================================================
+  {
+    id: 13,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     slug: 'static-inner-realm',
     title: 'Static & Inner Realm',
     subtitle: 'Enums, Nested Classes & Immutability',
@@ -1233,8 +1277,13 @@ public class Main {
     ],
     story: 'Enter the crystalline core where fundamental physical constants and fixed states govern the universe.',
     totalXP: 1000,
+<<<<<<< HEAD
     requiredLevelToUnlock: 15,
     prerequisiteLevelId: 14,
+=======
+    requiredLevelToUnlock: 13,
+    prerequisiteLevelId: 12,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     bossChallenge: {
       title: 'Harmonize the Crystal Core',
       description: 'Create an enum GameState with states MENU("Main Menu"), PLAYING("In Battle"), and GAME_OVER("Fallen"). Give each state a String description. Implement boolean canTransitionTo(GameState next) where MENU can transition to PLAYING, and PLAYING can transition to GAME_OVER. In main(), test transitions and print results.',
@@ -1271,8 +1320,13 @@ public class Main {
     },
     missions: [
       {
+<<<<<<< HEAD
         id: 'm15_enum_1',
         levelId: 15,
+=======
+        id: 'm13_1',
+        levelId: 13,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         number: 1,
         title: 'Constants of the Cosmos: Custom Enum',
         mode: 'coding_arena',
@@ -1310,10 +1364,17 @@ public class Main {
   },
 
   // =========================================================================
+<<<<<<< HEAD
   // LEVEL 16: ARCHITECTURE TOWER
   // =========================================================================
   {
     id: 16,
+=======
+  // LEVEL 14: ARCHITECTURE TOWER
+  // =========================================================================
+  {
+    id: 14,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     slug: 'architecture-tower',
     title: 'Architecture Tower',
     subtitle: 'SOLID Principles & Design Patterns',
@@ -1329,8 +1390,13 @@ public class Main {
     ],
     story: 'Ascend to the summit where grand software architects craft scalable, maintainable kingdoms resistant to decay.',
     totalXP: 1100,
+<<<<<<< HEAD
     requiredLevelToUnlock: 16,
     prerequisiteLevelId: 15,
+=======
+    requiredLevelToUnlock: 14,
+    prerequisiteLevelId: 13,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     bossChallenge: {
       title: 'Architect the Battle Engine',
       description: 'Implement the Strategy Pattern. Create an interface AttackStrategy with int calculateDamage(int base). Implement MeleeAttack (returns base * 2) and RangedAttack (returns base + 10). Create BattleService with an AttackStrategy field injected via constructor. Provide execute(String target, int base) printing "Attacking [target] for [damage] damage!". In main(), test MeleeAttack with base 30 on "Goblin".',
@@ -1365,8 +1431,13 @@ public class Main {
     },
     missions: [
       {
+<<<<<<< HEAD
         id: 'm16_arch_1',
         levelId: 16,
+=======
+        id: 'm14_1',
+        levelId: 14,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         number: 1,
         title: 'The Strategy Pattern: Loose Coupling',
         mode: 'coding_arena',
@@ -1405,10 +1476,17 @@ public class Main {
   },
 
   // =========================================================================
+<<<<<<< HEAD
   // LEVEL 17: THE MASTER TRIALS
   // =========================================================================
   {
     id: 17,
+=======
+  // LEVEL 15: THE MASTER TRIALS
+  // =========================================================================
+  {
+    id: 15,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     slug: 'the-master-trials',
     title: 'The Master Trials',
     subtitle: 'Comprehensive Integration & Architecture Mastery',
@@ -1424,8 +1502,13 @@ public class Main {
     ],
     story: 'Stand before the Grand Council of Masters. To earn the title of Grand Architect, prove your mastery across the entire spectrum of Java OOP.',
     totalXP: 1200,
+<<<<<<< HEAD
     requiredLevelToUnlock: 17,
     prerequisiteLevelId: 16,
+=======
+    requiredLevelToUnlock: 15,
+    prerequisiteLevelId: 14,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     bossChallenge: {
       title: 'Pass the Grand Trial',
       description: 'Build a QuestManager system. Create class Quest with title (String), xp (int), and completed (boolean). Implement addQuest(Quest q), completeQuest(String title), and int getTotalEarnedXp() which sums XP of only completed quests. In main(), add ("Find Crystal", 100) and ("Slay Goblin", 50), complete "Find Crystal", and print "Total XP: 100".',
@@ -1464,8 +1547,13 @@ public class Main {
     },
     missions: [
       {
+<<<<<<< HEAD
         id: 'm17_trial_1',
         levelId: 17,
+=======
+        id: 'm15_1',
+        levelId: 15,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         number: 1,
         title: 'The Council\'s Inquest: Enterprise Entity',
         mode: 'coding_arena',
@@ -1503,6 +1591,7 @@ public class Main {
   },
 
   // =========================================================================
+<<<<<<< HEAD
   // LEVEL 18: THE ETERNAL KINGDOM (5 FULL-SCALE OOP CAPSTONE PROJECTS)
   // =========================================================================
   {
@@ -1562,5 +1651,255 @@ public class Main {
       explanation:
         'This capstone integrates Encapsulation, Association, Aggregation, Composition, Abstract Classes, Interfaces, Inheritance, Method Overriding, Polymorphism, and Custom Exceptions in one complete system.',
     })),
+=======
+  // LEVEL 16: THE ETERNAL KINGDOM (FINAL CAMPAIGN)
+  // =========================================================================
+  {
+    id: 16,
+    slug: 'the-eternal-kingdom',
+    title: 'The Eternal Kingdom',
+    subtitle: 'The Epic 5-Stage Final Campaign against the Eclipse Dragon',
+    realmName: 'The Celestial Throne',
+    iconName: 'Crown',
+    description: 'Build the entire OOP game engine from scratch across 5 interconnected architectural stages to defeat the legendary Eclipse Dragon.',
+    topics: [
+      'Stage 1: World Creation (Encapsulation)',
+      'Stage 2: The Combat Engine (Polymorphism & Interfaces)',
+      'Stage 3: The Living Kingdom (Exceptions & Collections)',
+      'Stage 4: The Endless Dungeon (Defensive Architecture)',
+      'Stage 5: The Eclipse Dragon (Grand Boss Battle)',
+    ],
+    story: 'The ultimate climax. The cosmic Eclipse Dragon has devoured the realms. You must architect a complete Java OOP simulation across 5 stages to banish the darkness forever.',
+    totalXP: 2500,
+    requiredLevelToUnlock: 16,
+    prerequisiteLevelId: 15,
+    bossChallenge: {
+      title: 'Defeat the Eclipse Dragon',
+      description: 'The final showdown. Architect the EclipseEngine. Hero has 500 HP and attacks with 120 damage. EclipseDragon has 300 HP and attacks with 80 damage. Hero strikes first, reducing Dragon to 180. Dragon strikes back, reducing Hero to 420. Hero strikes again, reducing Dragon to 60. Dragon strikes back, reducing Hero to 340. Hero lands the final blow, reducing Dragon to 0. Print battle status after each round and announce "Eclipse Dragon Defeated! The Eternal Kingdom is Restored!".',
+      tasks: [
+        'Implement Hero and EclipseDragon classes with health, attack, and takeDamage methods',
+        'Implement EclipseEngine with a runBattle() method simulating the turn-based duel',
+        'Print turn-by-turn health states until EclipseDragon health reaches 0',
+        'Print: "Eclipse Dragon Defeated! The Eternal Kingdom is Restored!"',
+        'Verify Hero survives and victory is secured'
+      ],
+      starterCode: `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define Hero, EclipseDragon, and EclipseEngine classes here
+`,
+      testCases: [
+        {
+          id: 'c16_boss_tc1',
+          input: '',
+          expectedOutput: 'Round 1: Dragon HP: 180, Hero HP: 420\nRound 2: Dragon HP: 60, Hero HP: 340\nRound 3: Dragon HP: 0, Hero HP: 340\nEclipse Dragon Defeated! The Eternal Kingdom is Restored!',
+          description: 'Validates complete game engine simulation and turn-based resolution',
+        },
+      ],
+      hints: [
+        'Model the battle inside a while loop: while (dragon.isAlive() && hero.isAlive())',
+      ],
+    },
+    missions: [
+      {
+        id: 'm16_1',
+        levelId: 16,
+        number: 1,
+        title: 'Stage 1: World Creation',
+        mode: 'coding_arena',
+        storyIntro: 'Lay the bedrock of the Eternal Kingdom: create the living entities that inhabit the celestial realm.',
+        conceptSummary: 'Foundational OOP architecture starts with encapsulated domain models.',
+        instructions: 'Create WorldEntity with private String name and private int hp. Provide constructor WorldEntity(String name, int initialHp), getters getName() and getHp(), and void heal(int amount) that adds positive amounts. In main(), create Solaris with 250 HP, print creation, heal 50, and print updated HP.',
+        tasks: [
+          'Create WorldEntity with private String name and private int hp',
+          'Implement constructor WorldEntity(String name, int initialHp)',
+          'Implement public getters: getName() and getHp()',
+          'Implement void heal(int amount) that adds amount to hp if amount > 0',
+          'In main(), instantiate WorldEntity("Solaris", 250)',
+          'Print: "Entity Created: " + hero.getName() + " [HP: " + hero.getHp() + "]"',
+          'Call hero.heal(50)',
+          'Print: "After Sacred Heal: " + hero.getHp()'
+        ],
+        xpReward: 200,
+        starterCode: `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define WorldEntity class here
+`,
+        testCases: [
+          {
+            id: 'm16_1_tc1',
+            input: '',
+            expectedOutput: 'Entity Created: Solaris [HP: 250]\nAfter Sacred Heal: 300',
+            description: 'Validates stage 1 entity encapsulation and mutation',
+          },
+        ],
+        hints: ['Only add amount if amount > 0.'],
+        explanation: 'Clean encapsulation ensures invalid state transitions cannot occur.',
+      },
+      {
+        id: 'm16_2',
+        levelId: 16,
+        number: 2,
+        title: 'Stage 2: The Combat Engine',
+        mode: 'coding_arena',
+        storyIntro: 'Forge interchangeable attack skills to penetrate the Eclipse Dragon\'s impenetrable ward.',
+        conceptSummary: 'Interfaces and polymorphism allow adding new combat behaviors without modifying existing engine code.',
+        instructions: 'Create interface AttackSkill with int execute(int basePower). Implement PhysicalStrike (returns basePower) and SolarBeam (returns basePower * 2). In main(), test both skills with basePower = 100.',
+        tasks: [
+          'Create interface AttackSkill with method: int execute(int basePower)',
+          'Create PhysicalStrike implementing AttackSkill returning basePower',
+          'Create SolarBeam implementing AttackSkill returning basePower * 2',
+          'In main(), instantiate both skills using AttackSkill interface references',
+          'Print: "Skill 1: " + skill1.execute(100)',
+          'Print: "Skill 2: " + skill2.execute(100)'
+        ],
+        xpReward: 250,
+        starterCode: `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define AttackSkill interface, PhysicalStrike, and SolarBeam classes here
+`,
+        testCases: [
+          {
+            id: 'm16_2_tc1',
+            input: '',
+            expectedOutput: 'Skill 1: 100\nSkill 2: 200',
+            description: 'Validates stage 2 polymorphic combat strategy execution',
+          },
+        ],
+        hints: ['SolarBeam multiplies basePower by 2.'],
+        explanation: 'Dynamic polymorphism satisfies the Open/Closed Principle.',
+      },
+      {
+        id: 'm16_3',
+        levelId: 16,
+        number: 3,
+        title: 'Stage 3: The Living Kingdom',
+        mode: 'coding_arena',
+        storyIntro: 'Implement a bounded inventory system guarded by custom exception invariants.',
+        conceptSummary: 'Collections combined with custom exceptions guarantee capacity boundaries are respected.',
+        instructions: 'Create InventoryFullException extending RuntimeException. Create Inventory with private int capacity and List<String> items. addItem(String item) throws InventoryFullException if items.size() >= capacity. In main(), create Inventory with capacity 2, add "Celestial Blade", "Star Fragment", print "Slots filled: 2", then try adding "Dragon Fang" and catch exception to print "Exception handled: Inventory full".',
+        tasks: [
+          'Create custom exception InventoryFullException extends RuntimeException',
+          'Create class Inventory with private int capacity and private List<String> items = new ArrayList<>()',
+          'Implement void addItem(String item): if items.size() >= capacity throw new InventoryFullException("Inventory full"); else items.add(item)',
+          'Implement int getItemCount() returning items.size()',
+          'In main(), create Inventory(2), add 2 items, print "Slots filled: " + inv.getItemCount()',
+          'In try-catch, attempt adding 3rd item, catch InventoryFullException and print: "Exception handled: " + e.getMessage()'
+        ],
+        xpReward: 300,
+        starterCode: `import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define InventoryFullException and Inventory classes here
+`,
+        testCases: [
+          {
+            id: 'm16_3_tc1',
+            input: '',
+            expectedOutput: 'Slots filled: 2\nException handled: Inventory full',
+            description: 'Validates stage 3 capacity bounds enforcement and custom exception catching',
+          },
+        ],
+        hints: ['Check items.size() >= capacity before adding.'],
+        explanation: 'Defensive design prevents silent buffer overruns.',
+      },
+      {
+        id: 'm16_4',
+        levelId: 16,
+        number: 4,
+        title: 'Stage 4: The Endless Dungeon',
+        mode: 'coding_arena',
+        storyIntro: 'Configure the defense wards of the Celestial Throne before engaging the Eclipse Dragon.',
+        conceptSummary: 'State calibration patterns ensure systems reach verified operational thresholds.',
+        instructions: 'Create DungeonSentinel with private int defense = 0. Provide calibrateDefense(int val) which sets defense if val > 0, and boolean isReady() returning defense >= 100. In main(), create sentinel, calibrate with 150, and print "Sentinel calibrated: " + sentinel.isReady().',
+        tasks: [
+          'Create class DungeonSentinel with private int defense = 0',
+          'Implement void calibrateDefense(int val): if val > 0 this.defense = val',
+          'Implement boolean isReady() returning defense >= 100',
+          'In main(), instantiate DungeonSentinel',
+          'Call sentinel.calibrateDefense(150)',
+          'Print: "Sentinel calibrated: " + sentinel.isReady()'
+        ],
+        xpReward: 350,
+        starterCode: `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define DungeonSentinel class here
+`,
+        testCases: [
+          {
+            id: 'm16_4_tc1',
+            input: '',
+            expectedOutput: 'Sentinel calibrated: true',
+            description: 'Validates stage 4 state threshold verification',
+          },
+        ],
+        hints: ['Check whether defense meets the minimum required threshold of 100.'],
+        explanation: 'State machines ensure subsystems are ready before the main loop starts.',
+      },
+      {
+        id: 'm16_5',
+        levelId: 16,
+        number: 5,
+        title: 'Stage 5: The Eclipse Dragon',
+        mode: 'coding_arena',
+        storyIntro: 'The final trial. Assemble all subsystems into the final duel against the Eclipse Dragon.',
+        conceptSummary: 'The grand synthesis of all OOP principles into a living, authoritative game loop.',
+        instructions: 'Implement the EclipseDragon battle. Dragon starts with 300 HP. In main(), simulate hero dealing 300 damage in 3 hits of 100 each. After each hit, print "Dragon HP: [remaining]". When HP reaches 0, print "Victory! The Eclipse Dragon has fallen!".',
+        tasks: [
+          'Create EclipseDragon class with private int hp = 300',
+          'Implement void takeDamage(int amount) reducing hp (minimum 0)',
+          'Implement int getHp() and boolean isAlive()',
+          'In main(), instantiate dragon, deal 100 damage 3 times',
+          'Print remaining HP after each hit: "Dragon HP: " + dragon.getHp()',
+          'When dragon HP reaches 0, print: "Victory! The Eclipse Dragon has fallen!"'
+        ],
+        xpReward: 500,
+        starterCode: `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define EclipseDragon class here
+`,
+        testCases: [
+          {
+            id: 'm16_5_tc1',
+            input: '',
+            expectedOutput: 'Dragon HP: 200\nDragon HP: 100\nDragon HP: 0\nVictory! The Eclipse Dragon has fallen!',
+            description: 'Validates stage 5 final boss sequence resolution',
+          },
+        ],
+        hints: ['Subtract 100 each time and print the remaining hp.'],
+        explanation: 'The final boss brings together all 13 levels of OOP mastery.',
+      },
+    ],
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   },
 ];

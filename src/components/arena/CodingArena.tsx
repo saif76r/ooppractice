@@ -314,6 +314,7 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
         {/* ========================================================= */}
         {/* LEFT PANEL: BRIEF TASKS SIDEBAR (Width 5 cols on lg)      */}
         {/* ========================================================= */}
+<<<<<<< HEAD
         <div className="lg:col-span-5 bg-[#0b0e1b]/55 backdrop-blur-md border border-slate-800/80 rounded-xl overflow-hidden shadow-xl flex flex-col space-y-5 p-5 md:p-6 sticky top-20 max-h-[calc(100vh-100px)] overflow-y-auto">
           
           {/* Mission Stepper Tabs */}
@@ -323,6 +324,17 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                 Level Tasks & Missions
               </span>
               <span className="text-slate-400">
+=======
+        <div className="lg:col-span-5 bg-[#0b0e1b]/55 backdrop-blur-md border border-slate-800/80 rounded-xl overflow-hidden shadow-xl flex flex-col space-y-4 p-4 md:p-5 sticky top-20 max-h-[calc(100vh-100px)] overflow-y-auto">
+          
+          {/* Mission Stepper Tabs */}
+          <div>
+            <div className="flex items-center justify-between text-[11px] font-mono text-slate-300 mb-2">
+              <span className="font-semibold uppercase tracking-wider text-indigo-400">
+                Level Tasks & Missions
+              </span>
+              <span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 {progress.completedMissionIds.filter((id) =>
                   level.missions.some((m) => m.id === id) || id === `boss_level_${level.id}`
                 ).length} / {level.missions.length + 1} Cleared
@@ -330,7 +342,11 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
             </div>
 
             {/* Stepper Buttons */}
+<<<<<<< HEAD
             <div className="flex flex-wrap gap-2 p-2 bg-slate-950/45 rounded-xl border border-slate-800/70">
+=======
+            <div className="flex flex-wrap gap-1.5 p-1 bg-slate-950/45 rounded-lg border border-slate-800/70">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               {level.missions.map((m, idx) => {
                 const isSelected = !isBossMode && activeMission?.id === m.id;
                 const isDone = progress.completedMissionIds.includes(m.id);
@@ -339,7 +355,11 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                   <button
                     key={m.id}
                     onClick={() => handleSelectMissionTab(m)}
+<<<<<<< HEAD
                     className={`px-3 py-1.5 text-xs rounded-lg transition-all flex items-center gap-1.5 cursor-pointer font-medium tracking-wide ${
+=======
+                    className={`px-2.5 py-1 text-xs rounded-md transition-all flex items-center gap-1.5 cursor-pointer font-medium ${
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                       isSelected
                         ? isPredict
                           ? 'bg-purple-600 text-white shadow-sm ring-1 ring-purple-400/50'
@@ -350,6 +370,7 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                     }`}
                   >
                     {isDone ? (
+<<<<<<< HEAD
                       <Check className="w-3.5 h-3.5 text-emerald-400" />
                     ) : (
                       <span className="text-[11px] font-mono opacity-80">{idx + 1}.</span>
@@ -357,6 +378,15 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                     <span>Task {idx + 1}</span>
                     {isPredict && (
                       <span className="text-[10px] px-1.5 py-0.5 rounded bg-purple-950/80 text-purple-300 border border-purple-800/60 font-mono">
+=======
+                      <Check className="w-3 h-3 text-emerald-400" />
+                    ) : (
+                      <span className="text-[10px] font-mono">{idx + 1}</span>
+                    )}
+                    <span>Task {idx + 1}</span>
+                    {isPredict && (
+                      <span className="text-[9px] px-1 py-0.2 rounded bg-purple-950/80 text-purple-300 border border-purple-800/60 font-mono">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                         Output
                       </span>
                     )}
@@ -367,12 +397,20 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
               {/* Boss Challenge Tab */}
               <button
                 onClick={handleSelectBossTab}
+<<<<<<< HEAD
                 className={`px-3 py-1.5 text-xs rounded-lg transition-all flex items-center gap-1.5 cursor-pointer font-medium tracking-wide ${
+=======
+                className={`px-2.5 py-1 text-xs rounded-md transition-all flex items-center gap-1.5 cursor-pointer font-medium ${
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                   isBossMode
                     ? 'bg-amber-600 text-white shadow-sm'
                     : progress.completedMissionIds.includes(`boss_level_${level.id}`)
                     ? 'bg-emerald-950/40 text-emerald-300 border border-emerald-900/60'
+<<<<<<< HEAD
                     : 'text-amber-400/90 hover:text-amber-300 hover:bg-amber-950/30'
+=======
+                    : 'text-amber-400/80 hover:text-amber-300 hover:bg-amber-950/30'
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 }`}
               >
                 <span>Boss</span>
@@ -381,9 +419,15 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
           </div>
 
           {/* Active Mission Brief Header */}
+<<<<<<< HEAD
           <div className="p-5 bg-slate-900/45 border border-slate-800/80 rounded-xl space-y-3.5">
             <div className="flex items-center justify-between gap-2">
               <span className={`text-[11px] font-mono px-2.5 py-1 rounded-md border font-semibold uppercase tracking-wider ${
+=======
+          <div className="p-4 bg-slate-900/45 border border-slate-800/80 rounded-xl space-y-2.5">
+            <div className="flex items-center justify-between">
+              <span className={`text-[11px] font-mono px-2 py-0.5 rounded border font-semibold uppercase tracking-wider ${
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 isBossMode
                   ? 'bg-amber-950/60 border-amber-800 text-amber-300'
                   : activeMission?.mode === 'predict_output'
@@ -396,11 +440,16 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                   ? `Task ${activeMission?.number || 1} · Output Finding Trial`
                   : `Task ${activeMission?.number || 1}`}
               </span>
+<<<<<<< HEAD
               <span className="text-xs font-mono text-indigo-300 font-semibold">
+=======
+              <span className="text-xs font-mono text-slate-300 font-medium">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 +{isBossMode ? 200 : (activeMission?.xpReward || 75)} XP
               </span>
             </div>
             
+<<<<<<< HEAD
             <div className="space-y-2.5">
               <h2 className="text-base md:text-lg font-bold text-white leading-snug tracking-tight">
                 {activeTitle}
@@ -412,12 +461,21 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
               )}
               {/* Primary Objective Description */}
               <p className="text-sm text-slate-200 leading-7 font-normal tracking-[0.01em] break-words whitespace-pre-line">
+=======
+            <div>
+              <h2 className="text-base font-semibold text-white leading-snug">
+                {activeTitle}
+              </h2>
+              {/* Primary Objective Description */}
+              <p className="text-xs text-slate-200 leading-relaxed mt-1 font-normal">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 {isBossMode ? level.bossChallenge.description : (activeMission?.instructions || activeMission?.storyIntro)}
               </p>
             </div>
           </div>
 
           {/* SPECIFIC REQUIRED TASKS CHECKLIST */}
+<<<<<<< HEAD
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-200 flex items-center gap-2 uppercase tracking-wider">
@@ -425,13 +483,26 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                 <span>Requirements</span>
               </span>
               <span className="text-xs text-slate-400 font-mono">
+=======
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-200 flex items-center gap-1.5 uppercase tracking-wider">
+                <ListChecks className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Requirements</span>
+              </span>
+              <span className="text-[11px] text-slate-400 font-mono">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 {(activeMission?.mode === 'predict_output' ? isCurrentTaskCompleted : (execResult?.allTestsPassed || isCurrentTaskCompleted))
                   ? `${tasksList.length}/${tasksList.length} Complete`
                   : `0/${tasksList.length} Complete`}
               </span>
             </div>
 
+<<<<<<< HEAD
             <div className="space-y-2.5">
+=======
+            <div className="space-y-1.5">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               {tasksList.map((taskText, idx) => {
                 const isTaskDone = activeMission?.mode === 'predict_output'
                   ? isCurrentTaskCompleted
@@ -439,26 +510,42 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                 return (
                   <div
                     key={idx}
+<<<<<<< HEAD
                     className={`p-3.5 rounded-xl border text-xs md:text-[13.5px] transition-colors flex items-start gap-3 ${
+=======
+                    className={`p-2.5 rounded-lg border text-xs transition-colors flex items-start gap-2.5 ${
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                       isTaskDone
                         ? 'bg-emerald-950/25 border-emerald-800/50 text-emerald-200'
                         : 'bg-slate-900/40 border-slate-800/70 text-slate-200'
                     }`}
                   >
                     <div
+<<<<<<< HEAD
                       className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-0.5 text-[11px] font-mono font-semibold ${
+=======
+                      className={`w-4 h-4 rounded flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-mono ${
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                         isTaskDone
                           ? 'bg-emerald-600 text-white'
                           : 'border border-slate-700 bg-slate-800/80 text-slate-300'
                       }`}
                     >
                       {isTaskDone ? (
+<<<<<<< HEAD
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
+=======
+                        <Check className="w-3 h-3 stroke-[3]" />
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                       ) : (
                         idx + 1
                       )}
                     </div>
+<<<<<<< HEAD
                     <div className="flex-1 leading-relaxed tracking-[0.01em] text-slate-100 break-words">
+=======
+                    <div className="flex-1 leading-relaxed text-slate-200">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                       {taskText}
                     </div>
                   </div>
@@ -469,16 +556,24 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
 
           {/* Expected Output Contract Box */}
           {activeTestCases.length > 0 && !activeTestCases[0].isHidden && (
+<<<<<<< HEAD
             <div className="p-4 bg-slate-900/45 border border-slate-800/80 rounded-xl space-y-2.5 font-mono text-xs">
               <div className="flex items-center justify-between">
                 <span className="text-slate-300 text-xs font-semibold flex items-center gap-2">
                   <Code className="w-4 h-4 text-indigo-400" />
+=======
+            <div className="p-3 bg-slate-900/45 border border-slate-800/80 rounded-lg space-y-1.5 font-mono text-xs">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-300 text-[11px] font-semibold flex items-center gap-1.5">
+                  <Code className="w-3.5 h-3.5 text-indigo-400" />
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                   <span>Expected Console Output</span>
                 </span>
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText(activeTestCases[0].expectedOutput);
                   }}
+<<<<<<< HEAD
                   className="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 cursor-pointer transition-colors"
                   title="Copy expected output"
                 >
@@ -487,6 +582,16 @@ export const CodingArena: React.FC<CodingArenaProps> = ({
                 </button>
               </div>
               <pre className="bg-[#05070d]/65 p-3.5 rounded-lg text-slate-100 text-xs whitespace-pre-wrap border border-slate-800/70 font-mono leading-6 tracking-wide">
+=======
+                  className="text-[10px] text-slate-300 hover:text-white flex items-center gap-1 cursor-pointer transition-colors"
+                  title="Copy expected output"
+                >
+                  <Copy className="w-3 h-3" />
+                  <span>Copy</span>
+                </button>
+              </div>
+              <pre className="bg-[#05070d]/55 p-2.5 rounded text-slate-100 text-[11px] whitespace-pre-wrap border border-slate-800/70 font-mono leading-relaxed">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 {activeTestCases[0].expectedOutput}
               </pre>
             </div>

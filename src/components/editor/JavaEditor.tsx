@@ -58,7 +58,11 @@ export const JavaEditor: React.FC<JavaEditorProps> = ({
       <div
         ref={lineNumbersRef}
         aria-hidden="true"
+<<<<<<< HEAD
         className="min-w-[3.25rem] py-3 bg-[#05070d]/45 text-slate-500 select-none text-right pr-3 overflow-hidden border-r border-slate-800/70 leading-6 font-mono text-xs shrink-0"
+=======
+        className="w-12 py-3 bg-[#05070d]/45 text-slate-500 select-none text-right pr-3 overflow-hidden border-r border-slate-800/70 leading-6 font-mono text-xs"
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
       >
         {Array.from({ length: lineCount }).map((_, i) => (
           <div key={i} className="h-6">
@@ -80,8 +84,12 @@ export const JavaEditor: React.FC<JavaEditorProps> = ({
           autoCapitalize="off"
           autoComplete="off"
           autoCorrect="off"
+<<<<<<< HEAD
           wrap="off"
           className="w-full h-full p-3 bg-transparent text-slate-100 placeholder-slate-600 resize-none outline-none leading-6 font-mono whitespace-pre overflow-auto selection:bg-indigo-900 selection:text-white"
+=======
+          className="w-full h-full p-3 bg-transparent text-slate-100 placeholder-slate-600 resize-none outline-none leading-6 font-mono selection:bg-indigo-900 selection:text-white"
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
           placeholder="// Write your Java OOP code here..."
         />
       </div>

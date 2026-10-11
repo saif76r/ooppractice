@@ -43,18 +43,30 @@ export const AdventureMap: React.FC<AdventureMapProps> = ({
           Adventure Map
         </h1>
         <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+<<<<<<< HEAD
           Traverse the {CURRICULUM.length} sacred territories of Object-Oriented Java, featuring dedicated 10-challenge Mastery Arenas for Constructor Overloading, Method Overloading, Method Overriding, Aggregation, and Composition.
+=======
+          Traverse the {CURRICULUM.length} sacred territories of Object-Oriented Java, featuring dedicated Mastery Arenas for Constructor Overloading, Method Overloading, and Method Overriding with coding challenges and output-finding trials.
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<<<<<<< HEAD
         {/* Left: The 18 Realm Node Journey Grid */}
+=======
+        {/* Left: The 13 Realm Node Journey Grid */}
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         <div className="lg:col-span-7 space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {CURRICULUM.map((level) => {
               const status = getStatus(level);
               const isSelected = selectedLevel.id === level.id;
+<<<<<<< HEAD
               const isLevel13 = level.id === 18;
+=======
+              const isLevel13 = level.id === 13;
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               const completedCount = level.missions.filter((m) =>
                 progress.completedMissionIds.includes(m.id)
               ).length;

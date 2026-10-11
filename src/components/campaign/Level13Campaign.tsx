@@ -3,11 +3,18 @@ import { Level, UserProgress, ExecutionResult } from '../../types';
 import { JavaEditor } from '../editor/JavaEditor';
 import { runJavaCode, testJavaChallenge } from '../../services/javaRunner';
 import { saveCampaignStage } from '../../services/storage';
+<<<<<<< HEAD
 import { ETERNAL_KINGDOM_CAPSTONES } from '../../content/eternalKingdomCapstones';
 import confetti from 'canvas-confetti';
 import { 
   Crown, Play, CheckCircle2, RotateCcw, Shield, Sparkles, 
   Terminal, ChevronRight, Award, Trophy, AlertTriangle, ShieldCheck, Zap, Code, Copy
+=======
+import confetti from 'canvas-confetti';
+import { 
+  Crown, Play, CheckCircle2, RotateCcw, Shield, Sparkles, 
+  Terminal, ChevronRight, Award, Trophy, AlertTriangle, ShieldCheck, Zap
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
 } from 'lucide-react';
 
 interface Level13CampaignProps {
@@ -34,6 +41,7 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
   const [isVerifying, setIsVerifying] = useState<boolean>(false);
   const [execResult, setExecResult] = useState<ExecutionResult | null>(null);
 
+<<<<<<< HEAD
   const getCapstoneSpec = (stage: number) => {
     return ETERNAL_KINGDOM_CAPSTONES[stage - 1] || ETERNAL_KINGDOM_CAPSTONES[0];
   };
@@ -56,12 +64,76 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
       return saved;
     }
     return spec.skeletonCode;
+=======
+  // Starter code tailored for the active stage (Clean boilerplate - NO answers pre-filled!)
+  const getStageCode = (stage: number) => {
+    if (checkpoint.savedCodeByStage[stage]) {
+      return checkpoint.savedCodeByStage[stage];
+    }
+    if (stage === 1) {
+      return `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define WorldEntity class here
+`;
+    } else if (stage === 2) {
+      return `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define AttackSkill interface, PhysicalStrike, and SolarBeam classes here
+`;
+    } else if (stage === 3) {
+      return `import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define InventoryFullException and Inventory classes here
+`;
+    } else if (stage === 4) {
+      return `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define DungeonSentinel class here
+`;
+    } else {
+      // Stage 5: Final Eclipse Dragon Boss Engine
+      return `public class Main {
+    public static void main(String[] args) {
+        // Read the brief task on the left and write your code here
+        
+    }
+}
+
+// Define EclipseDragon class here
+`;
+    }
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   };
 
   const [code, setCode] = useState<string>(getStageCode(currentStage));
 
+<<<<<<< HEAD
   const activeSpec = getCapstoneSpec(currentStage);
 
+=======
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   const handleStageSelect = (stage: number) => {
     setCurrentStage(stage);
     setCode(getStageCode(stage));
@@ -83,6 +155,7 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
     setIsVerifying(true);
     setActiveTab('tests');
     try {
+<<<<<<< HEAD
       const runRes = await runJavaCode(code);
       if (runRes.compilationError || runRes.runtimeError) {
         setExecResult(runRes);
@@ -187,6 +260,30 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
       setExecResult(verifyResult);
 
       if (allPassed) {
+=======
+      const missionId = `campaign_stage_${currentStage}`;
+      const stageTests = currentStage === 5 
+        ? level.bossChallenge.testCases 
+        : [
+            {
+              id: `c13_s${currentStage}_t1`,
+              input: '',
+              expectedOutput: currentStage === 1
+                ? 'Entity Created: Solaris [HP: 250]\nAfter Sacred Heal: 300'
+                : currentStage === 2
+                ? 'Skill 1: 100\nSkill 2: 200'
+                : currentStage === 3
+                ? 'Slots filled: 2\nException handled: Inventory capacity exceeded (2)'
+                : 'Sentinel calibrated: true',
+              description: `Automated test contract for Stage ${currentStage}`,
+            },
+          ];
+
+      const res = await testJavaChallenge(code, stageTests, missionId);
+      setExecResult(res);
+
+      if (res.allTestsPassed) {
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         const isDragonDefeat = currentStage === 5;
         const newBossHp = isDragonDefeat ? 0 : Math.max(0, 1500 - (currentStage * 300));
         setBossHp(newBossHp);
@@ -210,12 +307,22 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
     }
   };
 
+<<<<<<< HEAD
   const stagesList = ETERNAL_KINGDOM_CAPSTONES.map((c) => ({
     num: c.stageNumber,
     title: c.title,
     topic: c.topic,
     badge: c.lineCountBadge,
   }));
+=======
+  const stagesList = [
+    { num: 1, title: 'Stage 1: World Creation', topic: 'Classes, Objects & Encapsulation' },
+    { num: 2, title: 'Stage 2: The Combat Engine', topic: 'Dynamic Dispatch & Interfaces' },
+    { num: 3, title: 'Stage 3: The Living Kingdom', topic: 'Collections & Custom Exceptions' },
+    { num: 4, title: 'Stage 4: The Endless Dungeon', topic: 'Hidden Test Suite & Robustness' },
+    { num: 5, title: 'Stage 5: The Eclipse Dragon', topic: 'Multi-Phase Combat Boss Loop' },
+  ];
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
 
   return (
     <div className="w-full max-w-7xl mx-auto py-8 px-4 md:px-8">
@@ -225,7 +332,11 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
           <div className="md:col-span-8 space-y-3">
             <div className="flex items-center gap-2 text-xs font-mono text-amber-400">
               <Crown className="w-4 h-4 text-amber-400" />
+<<<<<<< HEAD
               <span>LEVEL 18 · THE FINAL EPIC CAMPAIGN</span>
+=======
+              <span>LEVEL 13 · THE FINAL EPIC CAMPAIGN</span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               <span>·</span>
               <span className="text-slate-400">CHECKPOINT PERSISTENCE ACTIVE</span>
             </div>
@@ -295,6 +406,7 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
               }`}
             >
               <div className="flex items-center justify-between text-xs mb-1">
+<<<<<<< HEAD
                 <span className="font-mono text-slate-400">PROJECT 0{s.num}</span>
                 {isDone ? (
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -304,12 +416,24 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
               </div>
               <h4 className="text-xs font-semibold text-slate-100 truncate">{s.title}</h4>
               <p className="text-[11px] text-slate-400 truncate mt-0.5">{s.topic}</p>
+=======
+                <span className="font-mono text-slate-500">STAGE 0{s.num}</span>
+                {isDone ? (
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-slate-700" />
+                )}
+              </div>
+              <h4 className="text-xs font-semibold text-slate-200 truncate">{s.title}</h4>
+              <p className="text-[10px] text-slate-400 truncate mt-0.5">{s.topic}</p>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
             </button>
           );
         })}
       </div>
 
       {/* Campaign Coding Workspace */}
+<<<<<<< HEAD
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left: Stage Objective */}
         <div className="lg:col-span-5 bg-[#0b0e1b]/55 backdrop-blur-md border border-slate-800/80 rounded-xl p-5 md:p-6 flex flex-col justify-between max-h-[calc(100vh-90px)] overflow-y-auto sticky top-20">
@@ -362,11 +486,80 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                       {idx + 1}
                     </span>
                     <span className="leading-relaxed tracking-[0.01em] break-words">{t}</span>
+=======
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Left: Stage Objective */}
+        <div className="lg:col-span-5 bg-[#0b0e1b]/55 backdrop-blur-md border border-slate-800/80 rounded-lg p-5 flex flex-col justify-between">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-mono font-medium text-amber-400 uppercase tracking-wider">
+                Stage {currentStage} Protocol
+              </span>
+              <span className="text-xs font-mono text-slate-500">Auto-Checkpoint Saved</span>
+            </div>
+
+            <h2 className="text-lg font-display font-bold text-white">
+              {stagesList[currentStage - 1].title}
+            </h2>
+
+            <p className="text-xs text-slate-300 leading-relaxed">
+              {currentStage === 5
+                ? 'Confront the Eclipse Dragon. Implement the EclipseDragon and EclipseEngine combat loop. When HP falls <= 1000, trigger the cosmic barrier to deflect ordinary attacks and require magical piercing strikes.'
+                : currentStage === 1
+                ? 'Construct the foundational WorldEntity hierarchy with private fields, encapsulation, and validated heal mutator.'
+                : currentStage === 2
+                ? 'Build the polymorphic AttackSkill contract and concrete implementations demonstrating dynamic dispatch.'
+                : currentStage === 3
+                ? 'Implement the inventory collection system with capacity checks and the custom InventoryFullException.'
+                : 'Configure the defensive sentinel and pass all edge-case validation checks to access the final peak.'}
+            </p>
+
+            <div className="space-y-2">
+              <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
+                Requirements
+              </span>
+              <div className="space-y-1.5">
+                {[
+                  currentStage === 1 ? [
+                    'Create WorldEntity with private String name and private int hp',
+                    'Implement constructor WorldEntity(String name, int initialHp)',
+                    'Implement public getters: getName() and getHp()',
+                    'Implement void heal(int amount) adding to hp if amount > 0',
+                    'In main(), instantiate Solaris (250 HP), print creation status, heal 50, and print updated HP'
+                  ] : currentStage === 2 ? [
+                    'Create interface AttackSkill with method: int execute(int basePower)',
+                    'Create class PhysicalStrike implementing AttackSkill returning basePower',
+                    'Create class SolarBeam implementing AttackSkill returning basePower * 2',
+                    'In main(), instantiate both skills and print Skill 1 and Skill 2 with base 100'
+                  ] : currentStage === 3 ? [
+                    'Create custom exception InventoryFullException extends RuntimeException',
+                    'Create class Inventory with private int capacity and List<String> items',
+                    'Implement void addItem(String item) throwing InventoryFullException when full',
+                    'Implement int getItemCount() returning items.size()',
+                    'In main(), add 2 items to Inventory(2), print slots filled, attempt adding 3rd in try-catch and print exception message'
+                  ] : currentStage === 4 ? [
+                    'Create class DungeonSentinel with private int defense = 0',
+                    'Implement void calibrateDefense(int val) setting defense if val > 0',
+                    'Implement boolean isReady() returning defense >= 100',
+                    'In main(), calibrate with 150 and print: "Sentinel calibrated: " + sentinel.isReady()'
+                  ] : [
+                    'Create EclipseDragon class with 300 HP and void takeDamage(int amount)',
+                    'In main(), deal 100 damage 3 times and print Dragon HP after each strike',
+                    'When HP is 0, print: "Victory! The Eclipse Dragon has fallen!"'
+                  ]
+                ][0].map((t, idx) => (
+                  <div key={idx} className="p-2.5 rounded bg-slate-900/60 border border-slate-800 text-xs text-slate-300 flex items-start gap-2.5">
+                    <span className="w-4 h-4 rounded bg-slate-800 text-slate-400 border border-slate-700 flex items-center justify-center shrink-0 text-[10px] font-mono mt-0.5">
+                      {idx + 1}
+                    </span>
+                    <span className="leading-relaxed">{t}</span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                   </div>
                 ))}
               </div>
             </div>
 
+<<<<<<< HEAD
             {/* Demonstrated OOP Pillars */}
             <div className="p-4 rounded-xl bg-indigo-950/25 border border-indigo-800/40 space-y-2">
               <span className="text-xs font-semibold text-indigo-300 uppercase tracking-wider block">
@@ -380,6 +573,43 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                   </div>
                 ))}
               </div>
+=======
+            {/* Expected Console Output */}
+            <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-lg space-y-1.5 font-mono text-xs">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[11px] font-semibold block">
+                  Expected Console Output
+                </span>
+                <button
+                  onClick={() => {
+                    const text = currentStage === 1
+                      ? 'Entity Created: Solaris [HP: 250]\nAfter Sacred Heal: 300'
+                      : currentStage === 2
+                      ? 'Skill 1: 100\nSkill 2: 200'
+                      : currentStage === 3
+                      ? 'Slots filled: 2\nException handled: Inventory capacity exceeded (2)'
+                      : currentStage === 4
+                      ? 'Sentinel calibrated: true'
+                      : 'Dragon HP: 200\nDragon HP: 100\nDragon HP: 0\nVictory! The Eclipse Dragon has fallen!';
+                    navigator.clipboard.writeText(text);
+                  }}
+                  className="text-[10px] text-slate-400 hover:text-white cursor-pointer transition-colors"
+                >
+                  Copy
+                </button>
+              </div>
+              <pre className="bg-[#05070d] p-2 rounded text-slate-200 text-[11px] whitespace-pre-wrap border border-slate-800 leading-relaxed">
+                {currentStage === 1
+                  ? 'Entity Created: Solaris [HP: 250]\nAfter Sacred Heal: 300'
+                  : currentStage === 2
+                  ? 'Skill 1: 100\nSkill 2: 200'
+                  : currentStage === 3
+                  ? 'Slots filled: 2\nException handled: Inventory capacity exceeded (2)'
+                  : currentStage === 4
+                  ? 'Sentinel calibrated: true'
+                  : 'Dragon HP: 200\nDragon HP: 100\nDragon HP: 0\nVictory! The Eclipse Dragon has fallen!'}
+              </pre>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
             </div>
 
             {isDragonDefeated && (
@@ -388,8 +618,13 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                   <Trophy className="w-5 h-5 text-amber-400" />
                   <span>CAMPAIGN MASTERED!</span>
                 </div>
+<<<<<<< HEAD
                 <p className="text-xs text-amber-200/80 leading-relaxed">
                   You have completed all 5 Java OOP Capstone Systems and mastered all 18 realms of Object-Oriented Programming!
+=======
+                <p className="text-[11px] text-amber-200/80">
+                  You have defeated the Eclipse Dragon and demonstrated mastery across all 13 realms of Object-Oriented Programming!
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 </p>
               </div>
             )}
@@ -408,6 +643,7 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
 
         {/* Right: Code Editor & Execution Diagnostics */}
         <div className="lg:col-span-7 flex flex-col space-y-4">
+<<<<<<< HEAD
           <div className="flex flex-wrap items-center justify-between gap-2 pb-1">
             <div className="flex items-center gap-2 text-xs text-slate-300 font-mono">
               <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-white font-medium">
@@ -424,6 +660,36 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                 title="Reset editor to clean starter template"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
+=======
+          <div className="flex items-center justify-between pb-1">
+            <div className="text-xs text-slate-400 font-mono">
+              Java RPG Engine Code: Main.java
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  if (confirm('Start with a blank file?')) {
+                    setCode(`public class Main {\n    public static void main(String[] args) {\n        // Write your code here from scratch\n        \n    }\n}\n`);
+                    setExecResult(null);
+                  }
+                }}
+                className="px-2.5 py-1.5 text-xs text-slate-400 hover:text-slate-200 bg-slate-900 border border-slate-800 rounded transition-colors cursor-pointer"
+                title="Start from clean blank template"
+              >
+                <span>Blank</span>
+              </button>
+              <button
+                onClick={() => {
+                  if (confirm('Reset to stage starter template?')) {
+                    setCode(getStageCode(currentStage));
+                    setExecResult(null);
+                  }
+                }}
+                className="px-2.5 py-1.5 text-xs text-slate-400 hover:text-slate-200 bg-slate-900 border border-slate-800 rounded transition-colors flex items-center gap-1 cursor-pointer"
+                title="Reset code template"
+              >
+                <RotateCcw className="w-3 h-3" />
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 <span>Reset</span>
               </button>
               <button
@@ -432,7 +698,11 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                 className="px-3 py-1.5 text-xs text-slate-200 bg-slate-800 hover:bg-slate-700 rounded transition-colors flex items-center gap-1 cursor-pointer disabled:opacity-50"
               >
                 <Play className="w-3 h-3 fill-current text-indigo-400" />
+<<<<<<< HEAD
                 <span>{isRunning ? 'Running...' : 'Run Code'}</span>
+=======
+                <span>{isRunning ? 'Running...' : 'Run'}</span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               </button>
               <button
                 onClick={handleVerifyStage}
@@ -440,12 +710,20 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                 className="px-4 py-1.5 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded transition-colors flex items-center gap-1 cursor-pointer disabled:opacity-50"
               >
                 <CheckCircle2 className="w-3.5 h-3.5" />
+<<<<<<< HEAD
                 <span>{isVerifying ? 'Verifying...' : `Verify Project ${currentStage}`}</span>
+=======
+                <span>{isVerifying ? 'Verifying...' : `Verify Stage ${currentStage}`}</span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               </button>
             </div>
           </div>
 
+<<<<<<< HEAD
           <div className="min-h-[540px] h-[620px] resize-y overflow-hidden">
+=======
+          <div className="h-[420px]">
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
             <JavaEditor code={code} onChange={setCode} onRunShortcut={handleRun} />
           </div>
 
@@ -467,6 +745,7 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                 {execResult.runtimeError}
               </pre>
             ) : execResult?.testResults && execResult.testResults.length > 0 ? (
+<<<<<<< HEAD
               <div className="space-y-3">
                 <div className="space-y-1.5">
                   {execResult.testResults.map((t, i) => (
@@ -488,6 +767,22 @@ export const Level13Campaign: React.FC<Level13CampaignProps> = ({
                     {execResult.stdout}
                   </pre>
                 )}
+=======
+              <div className="space-y-1.5">
+                {execResult.testResults.map((t, i) => (
+                  <div
+                    key={i}
+                    className={`p-2 rounded text-[11px] flex items-center justify-between ${
+                      t.passed
+                        ? 'bg-emerald-950/30 text-emerald-300'
+                        : 'bg-red-950/30 text-red-300'
+                    }`}
+                  >
+                    <span>{t.description}</span>
+                    <span className="font-semibold">{t.passed ? 'PASSED' : 'FAILED'}</span>
+                  </div>
+                ))}
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
               </div>
             ) : execResult?.stdout ? (
               <pre className="text-slate-200 whitespace-pre-wrap leading-5">

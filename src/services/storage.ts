@@ -14,7 +14,11 @@ export const INITIAL_USER_PROGRESS: UserProgress = {
   lastActiveDate: new Date().toISOString().split('T')[0],
   completedMissionIds: [],
   completedLevelIds: [],
+<<<<<<< HEAD
   unlockedLevelIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+=======
+  unlockedLevelIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   achievements: [],
   campaignCheckpoint: {
     stage: 1,
@@ -32,9 +36,15 @@ export function getStoredProgress(): UserProgress {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return INITIAL_USER_PROGRESS;
     const parsed = JSON.parse(raw);
+<<<<<<< HEAD
     const all18 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
     const unlockedLevelIds = Array.from(
       new Set([...(parsed.unlockedLevelIds || []), ...all18])
+=======
+    const all16 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    const unlockedLevelIds = Array.from(
+      new Set([...(parsed.unlockedLevelIds || []), ...all16])
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     );
     return { ...INITIAL_USER_PROGRESS, ...parsed, unlockedLevelIds };
   } catch {
@@ -88,11 +98,19 @@ export function recordMissionCompletion(
   if (isLevelCompleted) {
     const nextId = levelId + 1;
     if (nextId <= CURRICULUM.length) {
+<<<<<<< HEAD
       // Level 18 requires Level 17 completion
       if (nextId === 18) {
         if (newCompletedLevels.includes(17)) {
           unlocked.add(18);
           nextLevelToUnlock = 18;
+=======
+      // Level 16 requires Level 15 completion
+      if (nextId === 16) {
+        if (newCompletedLevels.includes(15)) {
+          unlocked.add(16);
+          nextLevelToUnlock = 16;
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
         }
       } else {
         unlocked.add(nextId);
@@ -126,8 +144,13 @@ export function recordMissionCompletion(
     if (a) newlyUnlockedAchievements.push(a);
   }
 
+<<<<<<< HEAD
   // Level 17 (Master Trials) completion achievement
   if (newCompletedLevels.includes(17) && !currentAchievements.has('master_trials_victor')) {
+=======
+  // Level 15 (Master Trials) completion achievement
+  if (newCompletedLevels.includes(15) && !currentAchievements.has('master_trials_victor')) {
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     currentAchievements.add('master_trials_victor');
     const a = ACHIEVEMENTS.find((item) => item.id === 'master_trials_victor');
     if (a) newlyUnlockedAchievements.push(a);

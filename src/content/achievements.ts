@@ -76,7 +76,11 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'master_trials_victor',
     title: 'OOP Master Scholar',
+<<<<<<< HEAD
     description: 'Complete all 17 preliminary trial levels and unlock the Eternal Kingdom.',
+=======
+    description: 'Complete all 12 preliminary trial levels and unlock the Eternal Kingdom.',
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     category: 'curriculum',
     icon: 'Award',
     xpBonus: 300,
@@ -85,7 +89,11 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: 'eclipse_slayer',
     title: 'Slayer of the Eclipse Dragon',
+<<<<<<< HEAD
     description: 'Defeat the final boss in Level 18 and construct the full Java RPG engine.',
+=======
+    description: 'Defeat the final boss in Level 13 and construct the full Java RPG engine.',
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     category: 'campaign',
     icon: 'Trophy',
     xpBonus: 500,

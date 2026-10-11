@@ -1,4 +1,5 @@
 import { ExecutionResult, TestCase } from '../types';
+<<<<<<< HEAD
 import { executeJavaAST } from './javaInterpreter';
 
 function evaluateJavaLocally(code: string): ExecutionResult {
@@ -10,12 +11,75 @@ function evaluateJavaLocally(code: string): ExecutionResult {
     stdout: res.stdout,
     stderr: res.stderr,
     executionTimeMs: res.executionTimeMs,
+=======
+
+function evaluateJavaLocally(code: string, startTime: number): ExecutionResult {
+  if (!code.includes('class Main')) {
+    return {
+      success: false,
+      compilationError: 'Main.java:1: error: class Main is public, should be declared in a file named Main.java',
+      stdout: '',
+      stderr: 'Main.java:1: error: class Main is missing',
+      executionTimeMs: Date.now() - startTime,
+      testResults: [],
+      allTestsPassed: false,
+    };
+  }
+
+  let braceDepth = 0;
+  for (const ch of code) {
+    if (ch === '{') braceDepth++;
+    if (ch === '}') braceDepth--;
+  }
+  if (braceDepth !== 0) {
+    return {
+      success: false,
+      compilationError: 'Main.java: error: reached end of file while parsing (unbalanced curly braces)',
+      stdout: '',
+      stderr: 'Main.java: error: reached end of file while parsing',
+      executionTimeMs: Date.now() - startTime,
+      testResults: [],
+      allTestsPassed: false,
+    };
+  }
+
+  const lines: string[] = [];
+  const printRegex = /System\.out\.print(ln)?\s*\(([\s\S]*?)\)\s*;/g;
+  let match: RegExpExecArray | null;
+  while ((match = printRegex.exec(code)) !== null) {
+    const isLn = match[1] === 'ln';
+    const rawArg = match[2].trim();
+    const cleaned = rawArg
+      .split('+')
+      .map((part) => {
+        const p = part.trim();
+        if ((p.startsWith('"') && p.endsWith('"')) || (p.startsWith("'") && p.endsWith("'"))) {
+          return p.slice(1, -1);
+        }
+        return p;
+      })
+      .join('');
+    lines.push(cleaned + (isLn ? '\n' : ''));
+  }
+
+  return {
+    success: true,
+    compilationError: undefined,
+    runtimeError: undefined,
+    stdout: lines.join(''),
+    stderr: '',
+    executionTimeMs: Date.now() - startTime,
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     testResults: [],
     allTestsPassed: false,
   };
 }
 
 export async function runJavaCode(code: string, stdin: string = ''): Promise<ExecutionResult> {
+<<<<<<< HEAD
+=======
+  const startTime = Date.now();
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   try {
     const response = await fetch('/api/java/run', {
       method: 'POST',
@@ -24,7 +88,11 @@ export async function runJavaCode(code: string, stdin: string = ''): Promise<Exe
     });
 
     if (!response.ok) {
+<<<<<<< HEAD
       return evaluateJavaLocally(code);
+=======
+      return evaluateJavaLocally(code, startTime);
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     }
 
     const data = await response.json();
@@ -39,7 +107,11 @@ export async function runJavaCode(code: string, stdin: string = ''): Promise<Exe
       allTestsPassed: false,
     };
   } catch {
+<<<<<<< HEAD
     return evaluateJavaLocally(code);
+=======
+    return evaluateJavaLocally(code, startTime);
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   }
 }
 
@@ -48,6 +120,10 @@ export async function testJavaChallenge(
   testCases: TestCase[],
   missionId: string
 ): Promise<ExecutionResult> {
+<<<<<<< HEAD
+=======
+  const startTime = Date.now();
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   try {
     const response = await fetch('/api/java/test', {
       method: 'POST',
@@ -59,14 +135,22 @@ export async function testJavaChallenge(
       return await response.json();
     }
   } catch {
+<<<<<<< HEAD
     // Fall through to local AST test runner
   }
 
   const localExec = evaluateJavaLocally(code);
+=======
+    // Fall through to local test runner
+  }
+
+  const localExec = evaluateJavaLocally(code, startTime);
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
   if (localExec.compilationError) {
     return localExec;
   }
 
+<<<<<<< HEAD
   const normalizeOut = (s: string) =>
     s
       .replace(/\r\n/g, '\n')
@@ -79,6 +163,12 @@ export async function testJavaChallenge(
   let allPassed = true;
   const testResults = testCases.map((tc) => {
     const expectedOutput = normalizeOut(tc.expectedOutput || '');
+=======
+  const actualOutput = (localExec.stdout || '').trim().replace(/\r\n/g, '\n');
+  let allPassed = true;
+  const testResults = testCases.map((tc) => {
+    const expectedOutput = (tc.expectedOutput || '').trim().replace(/\r\n/g, '\n');
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     const passed = actualOutput === expectedOutput;
     if (!passed) allPassed = false;
     return {

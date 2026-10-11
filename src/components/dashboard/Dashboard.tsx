@@ -71,7 +71,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
             </h1>
 
             <p className="text-xs md:text-sm text-slate-200 max-w-2xl leading-relaxed">
+<<<<<<< HEAD
               Step into Olympia where encapsulation shields your heroes, polymorphism commands diverse combatants, and collections preserve infinite inventories. Write real Java code to unlock all {CURRICULUM.length} realms.
+=======
+              Step into Olympia where encapsulation shields your heroes, polymorphism commands diverse combatants, and collections preserve infinite inventories. Write real Java code to unlock all 16 realms.
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -223,7 +227,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 <Crown className="w-4 h-4" />
                 FINAL CAMPAIGN
               </span>
+<<<<<<< HEAD
               <span className="text-xs font-mono text-slate-300">LEVEL 18</span>
+=======
+              <span className="text-xs font-mono text-slate-300">LEVEL 16</span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
             </div>
 
             <div>
@@ -239,7 +247,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
               <div className="flex items-center justify-between text-slate-400">
                 <span>Status</span>
                 <span className="text-indigo-400 font-medium">
+<<<<<<< HEAD
                   {progress.unlockedLevelIds.includes(18) ? 'Unlocked' : 'Requires Level 17'}
+=======
+                  {progress.unlockedLevelIds.includes(16) ? 'Unlocked' : 'Requires Level 15'}
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
                 </span>
               </div>
               <div className="flex items-center justify-between text-slate-400">

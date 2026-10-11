@@ -17,7 +17,11 @@ export const Footer: React.FC = () => {
             <span>OpenJDK 17 Execution Engine</span>
           </span>
           <span>·</span>
+<<<<<<< HEAD
           <span>18 Realms of Mastery</span>
+=======
+          <span>13 Realms of Mastery</span>
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
           <span>·</span>
           <span>© 2026 OOP Quest</span>
         </div>

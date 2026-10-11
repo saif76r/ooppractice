@@ -7,7 +7,10 @@ import os from 'os';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
+<<<<<<< HEAD
 import { executeJavaAST } from './src/services/javaInterpreter.ts';
+=======
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
 
 dotenv.config();
 
@@ -102,6 +105,7 @@ async function executeJavaWithFallback(code: string, tempDir: string, startTime:
     };
   }
 
+<<<<<<< HEAD
   // Run real Java OOP AST Interpreter first for fast, deterministic execution
   const astResult = executeJavaAST(code);
   if (astResult.success || astResult.runtimeError) {
@@ -127,6 +131,16 @@ async function executeJavaWithFallback(code: string, tempDir: string, startTime:
         const response = await ai.models.generateContent({
           model: modelName,
           contents: `Act as an exact Java 21 compiler (javac) and JVM (java Main). Evaluate the following Main.java code and return ONLY valid JSON with fields:
+=======
+  // If GEMINI_API_KEY is available, use Gemini to accurately simulate javac + java execution
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (apiKey) {
+    try {
+      const ai = new GoogleGenAI({ apiKey });
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: `Act as an exact Java 21 compiler (javac) and JVM (java Main). Evaluate the following Main.java code and return ONLY valid JSON with fields:
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
 {
   "compilationError": string | null,
   "runtimeError": string | null,
@@ -136,6 +150,7 @@ Do not wrap in markdown code blocks. Be 100% faithful to Java syntax, types, acc
 
 Code:
 ${code}`,
+<<<<<<< HEAD
         });
         if (response && response.text) {
           const cleanJson = response.text.trim().replace(/^```json\s*/i, '').replace(/```$/, '').trim();
@@ -159,6 +174,54 @@ ${code}`,
 
   return {
     ...astResult,
+=======
+      });
+      if (response && response.text) {
+        const cleanJson = response.text.trim().replace(/^```json\s*/i, '').replace(/```$/, '').trim();
+        const parsed = JSON.parse(cleanJson);
+        const hasCompErr = !!parsed.compilationError;
+        const hasRunErr = !!parsed.runtimeError;
+        return {
+          success: !hasCompErr && !hasRunErr,
+          compilationError: parsed.compilationError || null,
+          runtimeError: parsed.runtimeError || null,
+          stdout: parsed.stdout || '',
+          stderr: parsed.compilationError || parsed.runtimeError || '',
+          executionTimeMs: Date.now() - startTime,
+        };
+      }
+    } catch {
+      // Fall through to local AST/print evaluator if API call fails
+    }
+  }
+
+  // Deterministic lightweight Java print & expression evaluator fallback
+  const lines: string[] = [];
+  const printRegex = /System\.out\.print(ln)?\s*\(([\s\S]*?)\)\s*;/g;
+  let match: RegExpExecArray | null;
+  while ((match = printRegex.exec(code)) !== null) {
+    const isLn = match[1] === 'ln';
+    const rawArg = match[2].trim();
+    const cleaned = rawArg
+      .split('+')
+      .map((part) => {
+        const p = part.trim();
+        if ((p.startsWith('"') && p.endsWith('"')) || (p.startsWith("'") && p.endsWith("'"))) {
+          return p.slice(1, -1);
+        }
+        return p;
+      })
+      .join('');
+    lines.push(cleaned + (isLn ? '\n' : ''));
+  }
+
+  return {
+    success: true,
+    compilationError: null,
+    runtimeError: null,
+    stdout: lines.join(''),
+    stderr: '',
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     executionTimeMs: Date.now() - startTime,
   };
 }
@@ -218,6 +281,7 @@ app.post('/api/java/test', async (req, res) => {
     const testResults: any[] = [];
     let allPassed = true;
 
+<<<<<<< HEAD
     const normalizeOut = (s: string) =>
       s
         .replace(/\r\n/g, '\n')
@@ -230,6 +294,12 @@ app.post('/api/java/test', async (req, res) => {
 
     for (const tc of testCases) {
       const expectedOutput = normalizeOut(tc.expectedOutput || '');
+=======
+    const actualOutput = (execResult.stdout || '').trim().replace(/\r\n/g, '\n');
+
+    for (const tc of testCases) {
+      const expectedOutput = (tc.expectedOutput || '').trim().replace(/\r\n/g, '\n');
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
       const passed = actualOutput === expectedOutput;
       if (!passed) allPassed = false;
 
@@ -276,6 +346,7 @@ app.post('/api/tutor/explain', async (req, res) => {
   // Check if GEMINI_API_KEY is available
   const apiKey = process.env.GEMINI_API_KEY;
   if (apiKey) {
+<<<<<<< HEAD
     const ai = new GoogleGenAI({
       apiKey,
       httpOptions: {
@@ -285,6 +356,11 @@ app.post('/api/tutor/explain', async (req, res) => {
       },
     });
     const prompt = `You are the Arcane Java Tutor in OOP Quest, a gamified fantasy programming realm.
+=======
+    try {
+      const ai = new GoogleGenAI({ apiKey });
+      const prompt = `You are the Arcane Java Tutor in OOP Quest, a gamified fantasy programming realm.
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
 A student is working on Java OOP concept: "${concept || 'Object-Oriented Programming'}".
 Student question / context: "${question || 'Explain how to solve this and fix any errors.'}"
 Compiler / runtime logs: "${errorLog || 'None'}"
@@ -300,6 +376,7 @@ Instructions:
 4. Do NOT simply write the entire final solution; empower the student to write the code themselves.
 5. Keep the tone inspiring, educational, and fantasy-themed. Maximum 4 short paragraphs.`;
 
+<<<<<<< HEAD
     for (const modelName of ['gemini-3.1-flash-lite', 'gemini-3.8-flash']) {
       try {
         const response = await ai.models.generateContent({
@@ -313,6 +390,18 @@ Instructions:
       } catch (err) {
         console.warn(`Gemini tutor generation (${modelName}) fallback:`, err);
       }
+=======
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+      });
+
+      if (response && response.text) {
+        return res.json({ advice: response.text });
+      }
+    } catch (err) {
+      console.warn('Gemini tutor generation fallback:', err);
+>>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
     }
   }
 
