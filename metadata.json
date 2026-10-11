@@ -1,0 +1,6 @@
+{
+  "name": "OOP Quest — Gamified Java Learning Platform",
+  "description": "Learn Java OOP through a fantasy RPG: 13 immersive levels, real Java compilation and execution, interactive game modes, and the epic final Eclipse Dragon campaign.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
