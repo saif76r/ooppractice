@@ -71,14 +71,8 @@ export default function App() {
   // Navigation helpers
   const handleSelectLevel = (level: Level) => {
     setActiveLevel(level);
-<<<<<<< HEAD
-    if (level.id === 18) {
-=======
-    if (level.id === 16) {
->>>>>>> 6a506dd38b589a6991af7f5686d901b239d59e23
-      setActiveTab('campaign');
-      return;
-    }
+
+    
     // Default to the first incomplete mission or mission 1
     const incomplete = level.missions.find((m) => !progress.completedMissionIds.includes(m.id)) || level.missions[0];
     setActiveMission(incomplete);
